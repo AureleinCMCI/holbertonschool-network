@@ -1,0 +1,2 @@
+#!/bin/bash
+ss -lpn | awk 'NR>1 {gsub(/users:\(\("|",pid=/, " "); split($7,a," "); print $1, $5, a[2]"/"a[1]}'
