@@ -1,0 +1,2 @@
+#!/bin/bash
+sudo bash -c 'echo -e "127.0.0.2 localhost\n8.8.8.8 facebook.com" >> /etc/hosts'  # Notez la suppression de l'espace après \n
