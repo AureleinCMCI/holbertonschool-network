@@ -1,0 +1,70 @@
+Que se passe-t-il lorsque vous tapez https://www.google.com dans votre navigateur et appuyez sur Entrée ?
+Avez-vous déjà réfléchi au parcours que fait votre requête sur le web lorsque vous tapez une URL comme https://www.google.com et que vous appuyez sur Entrée ? Ce geste apparemment simple déclenche une succession d’étapes techniques complexes, impliquant de nombreux composants de l’architecture web. Découvrons ensemble chaque étape, du DNS jusqu’à la base de données.
+
+1. Requête DNS : Traduire le nom en adresse IP
+Lorsque vous saisissez www.google.com, votre navigateur doit d’abord trouver l’adresse IP correspondante, car les ordinateurs communiquent via des adresses numériques.
+
+Il vérifie d’abord s’il connaît déjà cette adresse (dans son cache ou celui du système d’exploitation).
+
+Si ce n’est pas le cas, il interroge un serveur DNS, qui peut à son tour consulter d’autres serveurs jusqu’à obtenir l’adresse IP officielle associée à www.google.com (par exemple, 142.250.190.68).
+
+2. TCP/IP : Établir une connexion fiable
+Une fois l’adresse IP obtenue, votre navigateur initie une connexion avec le serveur en utilisant la pile de protocoles TCP/IP.
+
+TCP (Transmission Control Protocol) garantit la livraison fiable et ordonnée des données.
+
+IP (Internet Protocol) s’occupe du routage des paquets à travers Internet.
+
+La connexion se fait via un « handshake » en trois temps (SYN, SYN-ACK, ACK).
+
+3. Pare-feu : Gardien du réseau
+Avant que votre requête n’atteigne les serveurs de Google, elle passe par plusieurs pare-feux (sur votre machine, votre box, chez votre fournisseur d’accès, puis chez Google).
+
+Les pare-feux filtrent le trafic, autorisant ou bloquant les connexions selon des règles de sécurité, pour protéger les réseaux contre les attaques ou les accès non autorisés.
+
+4. HTTPS/SSL : Sécuriser la connexion
+Parce que vous avez tapé https://, votre navigateur et le serveur de Google établissent un canal sécurisé et chiffré.
+
+Cela se fait grâce au protocole SSL/TLS.
+
+Le navigateur et le serveur échangent des certificats et des clés cryptographiques pour garantir que toutes les données transmises sont protégées contre l’interception ou la falsification.
+
+5. Répartiteur de charge (Load Balancer) : Répartir le trafic
+Google reçoit des milliards de requêtes chaque jour.
+
+Votre requête passe d’abord par un répartiteur de charge, qui distribue le trafic entre de nombreux serveurs.
+
+Cela permet d’éviter la surcharge d’un serveur unique et d’assurer rapidité et disponibilité.
+
+6. Serveur web : Gérer la requête HTTP(S)
+Le serveur web sélectionné reçoit votre requête HTTP(S).
+
+Il sert les contenus statiques (HTML, images, CSS…) et transmet les requêtes plus complexes au serveur applicatif.
+
+7. Serveur applicatif : Traiter la logique métier
+Pour les contenus dynamiques (comme une recherche personnalisée), le serveur web transmet la requête à un serveur applicatif.
+
+Ce serveur exécute la logique métier : traitement de votre recherche, authentification, gestion des préférences, etc.
+
+8. Base de données : Stocker et récupérer les données
+Si la requête nécessite des données (par exemple, des résultats de recherche), le serveur applicatif interroge la base de données.
+
+Les bases de données de Google sont hautement optimisées et distribuées pour fournir les résultats en quelques millisecondes.
+
+9. Retour de la réponse
+Le serveur web assemble la réponse et la renvoie, via le load balancer, jusqu’à votre navigateur.
+
+Les données voyagent toujours de façon sécurisée (HTTPS), passent à nouveau par les pare-feux, et sont enfin affichées par votre navigateur.
+
+Résumé des étapes
+Étape	Rôle
+Requête DNS	Résout le nom de domaine en adresse IP
+TCP/IP	Établit une connexion fiable entre client et serveur
+Pare-feu	Filtre et protège le trafic réseau
+HTTPS/SSL	Chiffre la communication entre navigateur et serveur
+Load Balancer	Répartit le trafic entre plusieurs serveurs
+Serveur web	Gère les requêtes HTTP(S) et sert les contenus statiques
+Serveur applicatif	Traite la logique métier et les contenus dynamiques
+Base de données	Stocke et fournit les données nécessaires
+À chaque fois que vous appuyez sur Entrée après avoir tapé une URL, vous déclenchez un processus sophistiqué, conçu pour être rapide, sécurisé et fiable. Comprendre ce parcours est essentiel pour tout ingénieur logiciel et permet d’apprécier la complexité et la robustesse du web moderne.
+
